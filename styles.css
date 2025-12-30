@@ -633,6 +633,13 @@ a.skill-card:hover {
     transform: translateY(-3px);
 }
 
+/* LinkedIn Badge */
+.LI-profile-badge {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 .footer {
     padding: 2rem;
     text-align: center;
