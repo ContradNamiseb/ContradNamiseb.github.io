@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Typewriter Effect
     const typewriterElement = document.getElementById('typewriter');
-    const phrases = ['System Architecture', 'C++ Applications', 'Web Experiences', 'Secure Code'];
+    const phrases = ['Clean Code', 'C++', 'Web Experiences', 'Secure Code'];
     let phraseIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     type();
 
-    // 3D Tilt Effect - Disabled
+    // 3D Tilt Effect
     // const glassCard = document.querySelector('.glass-card');
     // if (glassCard) {
     //     document.addEventListener('mousemove', (e) => {
