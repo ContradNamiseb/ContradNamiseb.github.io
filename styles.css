@@ -681,6 +681,11 @@ a.skill-card:hover {
         height: 300px;
     }
 
+    .glass-card.profile-card {
+        width: 280px;
+        height: 280px;
+    }
+
     .hero-btns {
         justify-content: center;
     }
