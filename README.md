@@ -27,8 +27,7 @@ portfolio/
 ├── index.html          # Main HTML file
 ├── styles.css          # All styles and animations
 ├── scripts.js          # Interactive functionality
-├── images/             # Profile and project images
-└── CV_merged-docs.pdf  # Resume/CV
+└── images/             # Profile and project images
 ```
 ## 📬 Contact
 
