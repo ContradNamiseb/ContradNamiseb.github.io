@@ -3,6 +3,7 @@
    ----------------------------------------
 */
 :root {
+    /* Colors */
     --bg-dark: #030712;
     --bg-surface: #111827;
     --text-primary: #f9fafb;
@@ -10,12 +11,61 @@
     --accent-primary: #0ea5e9;
     --accent-secondary: #3b82f6;
     --accent-cyan: #7dd3fc;
+
+    /* Backgrounds & Borders (Dark Mode Default) */
+    --nav-bg: rgba(3, 7, 18, 0.85);
+    --nav-border: rgba(255, 255, 255, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.05);
+    --card-hover-bg: rgba(255, 255, 255, 0.08);
+    --project-card-bg: rgba(17, 24, 39, 0.6);
+    --project-card-border: rgba(255, 255, 255, 0.05);
+    --btn-secondary-border: rgba(255, 255, 255, 0.1);
+    --tag-bg: rgba(255, 255, 255, 0.05);
+    --footer-border: rgba(255, 255, 255, 0.05);
+    --mobile-nav-bg: rgba(3, 7, 18, 0.98);
+
+    /* Gradients */
     --gradient-main: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
     --gradient-text: linear-gradient(to right, #7dd3fc, #0ea5e9, #2563eb);
+
+    /* Fonts & Transitions */
     --font-heading: 'Outfit', sans-serif;
     --font-body: 'Inter', sans-serif;
     --transition-fast: 0.2s ease;
     --transition-medium: 0.3s ease-in-out;
+}
+
+[data-theme="light"] {
+    --bg-dark: #f3f4f6;
+    --bg-surface: #ffffff;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+
+    --nav-bg: rgba(255, 255, 255, 0.85);
+    --nav-border: rgba(0, 0, 0, 0.05);
+
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(0, 0, 0, 0.05);
+
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.05);
+    --card-hover-bg: #f9fafb;
+
+    --project-card-bg: #ffffff;
+    --project-card-border: rgba(0, 0, 0, 0.05);
+
+    --btn-secondary-border: rgba(0, 0, 0, 0.1);
+
+    --tag-bg: rgba(0, 0, 0, 0.05);
+    --footer-border: rgba(0, 0, 0, 0.05);
+    --mobile-nav-bg: rgba(255, 255, 255, 0.98);
+
+    /* Darker accents for better contrast on light bg */
+    --accent-primary: #0284c7; /* Sky 600 */
+    --accent-cyan: #0ea5e9;    /* Sky 500 */
 }
 
 * {
@@ -34,6 +84,7 @@ body {
     font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -75,8 +126,8 @@ ul {
 .btn-secondary {
     display: inline-block;
     padding: 0.8rem 1.8rem;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    color: white;
+    border: 2px solid var(--btn-secondary-border);
+    color: var(--text-primary);
     font-weight: 600;
     border-radius: 50px;
     margin-left: 1rem;
@@ -108,9 +159,9 @@ ul {
 
 .navbar.scrolled {
     padding: 1rem 5%;
-    background: rgba(3, 7, 18, 0.85);
+    background: var(--nav-bg);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--nav-border);
 }
 
 .logo a {
@@ -121,6 +172,22 @@ ul {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: 0.5rem;
+    margin-right: 1rem;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-primary);
+    transform: scale(1.1);
 }
 
 .nav-links {
@@ -185,7 +252,7 @@ ul {
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1rem;
-    background: linear-gradient(to right, #fff, #94a3b8);
+    background: linear-gradient(to right, var(--text-primary), #94a3b8);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -275,9 +342,9 @@ ul {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--glass-bg);
     backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
     padding: 2rem;
     border-radius: 20px;
     display: flex;
@@ -448,8 +515,8 @@ ul {
 }
 
 .skill-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
     padding: 2rem 1rem;
     border-radius: 12px;
     text-align: center;
@@ -470,7 +537,7 @@ a.skill-card:hover {
 }
 
 .skill-card:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--card-hover-bg);
     transform: translateY(-5px);
 }
 
@@ -494,10 +561,10 @@ a.skill-card:hover {
 }
 
 .project-card {
-    background: rgba(17, 24, 39, 0.6);
+    background: var(--project-card-bg);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--project-card-border);
     transition: var(--transition-medium);
     backdrop-filter: blur(10px);
 }
@@ -548,7 +615,7 @@ a.skill-card:hover {
 .project-tags span {
     font-size: 0.8rem;
     padding: 0.3rem 0.8rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--tag-bg);
     border-radius: 20px;
     color: var(--accent-cyan);
 }
@@ -616,7 +683,7 @@ a.skill-card:hover {
 .social-links a {
     font-size: 1.5rem;
     color: var(--text-secondary);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--glass-border);
     width: 50px;
     height: 50px;
     display: flex;
@@ -645,7 +712,7 @@ a.skill-card:hover {
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.9rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--footer-border);
 }
 
 /* Animations */
@@ -704,7 +771,7 @@ a.skill-card:hover {
         right: -100%;
         width: 70%;
         height: 100vh;
-        background: rgba(3, 7, 18, 0.98);
+        background: var(--mobile-nav-bg);
         flex-direction: column;
         justify-content: center;
         transition: 0.3s ease;
