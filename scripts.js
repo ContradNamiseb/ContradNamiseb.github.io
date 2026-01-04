@@ -5,7 +5,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const htmlElement = document.documentElement;
     const icon = themeToggle.querySelector('i');
 
-    const savedTheme = localStorage.getItem('theme');
+    let savedTheme = null;
+    try {
+        savedTheme = localStorage.getItem('theme');
+    } catch (e) {
+        console.warn('LocalStorage access denied', e);
+    }
+
     const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
     // Apply light mode ONLY if specifically saved or system defaults to it
@@ -20,12 +26,20 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isCurrentlyLight) {
             // Switch to Dark (Default)
             htmlElement.removeAttribute('data-theme');
-            localStorage.setItem('theme', 'dark');
+            try {
+                localStorage.setItem('theme', 'dark');
+            } catch (e) {
+                console.warn('LocalStorage access denied', e);
+            }
             if (icon) icon.style.transform = "rotate(0deg)";
         } else {
             // Switch to Light
             htmlElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
+            try {
+                localStorage.setItem('theme', 'light');
+            } catch (e) {
+                console.warn('LocalStorage access denied', e);
+            }
             if (icon) icon.style.transform = "rotate(180deg)";
         }
     });
@@ -122,4 +136,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // --- 6. Mobile Project Card Active State ---
+    if (window.matchMedia('(hover: none)').matches) {
+        const projectCardObserverOptions = {
+            threshold: 0.2,
+            rootMargin: "0px"
+        };
+
+        const projectCardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, projectCardObserverOptions);
+
+        document.querySelectorAll('.project-card').forEach(el => projectCardObserver.observe(el));
+    }
 });
