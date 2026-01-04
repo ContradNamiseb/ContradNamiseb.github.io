@@ -594,10 +594,20 @@ a.skill-card:hover {
     backdrop-filter: blur(10px);
 }
 
-.project-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(14, 165, 233, 0.3);
-    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+@media (hover: hover) {
+    .project-card:hover {
+        transform: translateY(-10px);
+        border-color: rgba(14, 165, 233, 0.3);
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media (hover: none) {
+    .project-card.active {
+        transform: translateY(-10px);
+        border-color: rgba(14, 165, 233, 0.3);
+        box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+    }
 }
 
 .project-content {
@@ -645,14 +655,48 @@ a.skill-card:hover {
     color: var(--accent-cyan);
 }
 
-.project-links a {
-    color: var(--text-secondary);
-    font-size: 1.3rem;
-    transition: var(--transition-fast);
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
-.project-links a:hover {
-    color: var(--accent-primary);
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition-fast);
+    min-height: 44px;
+}
+
+.btn-demo {
+    background: var(--gradient-main);
+    color: white;
+    box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.btn-demo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+    color: white;
+}
+
+.btn-code {
+    border: 1px solid var(--accent-primary);
+    color: var(--text-primary);
+    background: transparent;
+}
+
+.btn-code:hover {
+    background: rgba(14, 165, 233, 0.1);
+    transform: translateY(-2px);
+    color: var(--text-primary);
 }
 
 .view-all-card {
