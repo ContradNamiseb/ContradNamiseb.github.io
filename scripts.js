@@ -61,6 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navLinks.classList.toggle('active');
+
+            // Update accessibility attribute
+            const isExpanded = hamburger.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
         });
 
         // Close menu when a link is clicked
@@ -68,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
             });
         });
     }
