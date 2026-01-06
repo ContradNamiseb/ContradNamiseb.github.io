@@ -229,6 +229,9 @@ ul {
     cursor: pointer;
     flex-direction: column;
     gap: 6px;
+    background: transparent;
+    border: none;
+    padding: 0;
 }
 
 .bar {
