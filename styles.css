@@ -109,6 +109,23 @@ ul {
     padding: 0 2rem;
 }
 
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-primary);
+    color: white;
+    padding: 8px;
+    z-index: 2000;
+    transition: top 0.3s;
+    font-weight: bold;
+    border-radius: 0 0 8px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 .btn-primary {
     display: inline-block;
     padding: 0.8rem 1.8rem;
