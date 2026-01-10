@@ -161,4 +161,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
         document.querySelectorAll('.project-card').forEach(el => projectCardObserver.observe(el));
     }
+
+    // --- 7. Active Scroll Spy Navigation ---
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+
+    const scrollSpyOptions = {
+        threshold: 0.3
+    };
+
+    const scrollSpyObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                // Remove active from all
+                navItems.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, scrollSpyOptions);
+
+    sections.forEach(section => {
+        scrollSpyObserver.observe(section);
+    });
 });
