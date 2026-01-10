@@ -248,17 +248,21 @@ ul {
 .nav-links a:not(.btn-primary) {
     font-weight: 500;
     color: var(--text-secondary);
+    display: inline-block;
+    padding: 0.5rem 0.5rem;
+    border: 1px solid transparent;
+    border-radius: 100px;
+    transition: var(--transition-medium);
 }
 
-.nav-links a:not(.btn-primary):hover {
-    display: inline-block;
+.nav-links a:not(.btn-primary):hover,
+.nav-links a:not(.btn-primary):focus-visible,
+.nav-links a:not(.btn-primary).active {
     color: var(--text-primary);
     background: var(--gradient-main);
     border-color: var(--accent-primary);
     box-shadow: 0 10px 25px rgba(14, 165, 233, 0.5);
-    border-radius: 100px;
-    padding: 0.5rem 0.5rem;
-    transition: var(--transition-medium);
+    outline: none;
 }
 
 .hamburger {
