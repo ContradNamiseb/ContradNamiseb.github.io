@@ -909,3 +909,39 @@ a.skill-card:hover {
         transform: translateY(-9px) rotate(-45deg);
     }
 }
+/* ----------------------------------------
+   ACCESSIBILITY: REDUCED MOTION
+   ----------------------------------------
+*/
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Force smooth scroll off on html */
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .blob,
+    .scroll-down,
+    #typewriter::after {
+        animation: none !important;
+    }
+
+    .theme-toggle i {
+        transition: none !important;
+        transform: none !important;
+    }
+}
