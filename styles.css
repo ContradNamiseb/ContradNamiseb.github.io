@@ -104,6 +104,18 @@ ul {
    ----------------------------------------
 */
 /* Accessibility */
+button:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.project-btn:focus-visible,
+.social-links a:focus-visible,
+.theme-toggle:focus-visible,
+a.skill-card:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 4px;
+    transition: outline-offset 0.1s ease;
+}
+
 .skip-link {
     position: absolute;
     top: -100px;
