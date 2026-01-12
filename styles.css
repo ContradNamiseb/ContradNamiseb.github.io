@@ -957,3 +957,53 @@ a.skill-card:hover {
         transform: none !important;
     }
 }
+
+/* ----------------------------------------
+   PROJECT CARD BACKGROUNDS
+   ----------------------------------------
+*/
+#project-sky-namibia {
+    background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)), url('images/skynamibia.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#project-hotel-ui {
+    background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)), url('images/hotel-website.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Force light text for project cards with dark background images */
+#project-sky-namibia,
+#project-hotel-ui {
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --project-card-border: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#project-sky-namibia .project-title,
+#project-hotel-ui .project-title {
+    color: var(--text-primary);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+#project-sky-namibia .project-desc,
+#project-hotel-ui .project-desc {
+    color: var(--text-secondary);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Ensure buttons are visible */
+#project-sky-namibia .btn-code,
+#project-hotel-ui .btn-code {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+}
+
+#project-sky-namibia .btn-code:hover,
+#project-hotel-ui .btn-code:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+}
