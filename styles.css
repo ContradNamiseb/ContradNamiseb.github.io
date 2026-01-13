@@ -989,9 +989,10 @@ a.skill-card:hover {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    left: auto;
+    right: 0;
+    width: 50%;
+    height: 50%;
     background-size: cover;
     background-position: top center;
     z-index: -1;
