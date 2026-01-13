@@ -92,6 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let phraseIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
+        let timeoutId = null;
+
+        // Check for reduced motion preference
+        const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
         function type() {
             const currentPhrase = phrases[phraseIndex];
@@ -120,9 +124,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 typeSpeed = 500;
             }
 
-            setTimeout(type, typeSpeed);
+            timeoutId = setTimeout(type, typeSpeed);
         }
-        type();
+
+        function handleMotionChange(e) {
+            if (e.matches) {
+                // Reduced motion enabled: Stop animation and show static text
+                if (timeoutId) {
+                    clearTimeout(timeoutId);
+                    timeoutId = null;
+                }
+                typewriterElement.textContent = phrases[0];
+            } else {
+                // Reduced motion disabled: Start/Resume animation
+                if (!timeoutId) type();
+            }
+        }
+
+        // Initialize based on current preference
+        if (mediaQuery.matches) {
+            typewriterElement.textContent = phrases[0];
+        } else {
+            type();
+        }
+
+        // Listen for preference changes
+        mediaQuery.addEventListener('change', handleMotionChange);
     }
 
     // --- 5. Scroll Animation (Intersection Observer) ---
