@@ -963,15 +963,15 @@ a.skill-card:hover {
    ----------------------------------------
 */
 #project-sky-namibia {
-    background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)), url('images/skynamibia.png');
+    background-image: linear-gradient(rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.7)), url('images/skynamibia.png');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
 }
 
 #project-hotel-ui {
-    background-image: linear-gradient(rgba(17, 24, 39, 0.85), rgba(17, 24, 39, 0.95)), url('images/hotel-website.png');
+    background-image: linear-gradient(rgba(17, 24, 39, 0.5), rgba(17, 24, 39, 0.7)), url('images/hotel-website.png');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
 }
 
 /* Force light text for project cards with dark background images */
