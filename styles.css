@@ -124,6 +124,9 @@ button:focus-visible,
 .project-btn:focus-visible,
 .social-links a:focus-visible,
 .theme-toggle:focus-visible,
+.view-all-card:focus-visible,
+.logo a:focus-visible,
+.scroll-down a:focus-visible,
 a.skill-card:focus-visible {
     outline: 2px solid var(--accent-primary);
     outline-offset: 4px;
@@ -670,6 +673,12 @@ a.skill-card:hover {
         border-color: rgba(14, 165, 233, 0.3);
         box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
     }
+}
+
+.project-card:focus-within {
+    transform: translateY(-10px) !important;
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
 }
 
 @media (hover: none) {
