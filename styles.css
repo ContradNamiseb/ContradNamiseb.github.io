@@ -1019,7 +1019,7 @@ a.skill-card:hover {
     background: linear-gradient(var(--project-overlay-start), var(--project-overlay-end));
     backdrop-filter: blur(var(--project-overlay-blur));
     -webkit-backdrop-filter: blur(var(--project-overlay-blur));
-    z-index: -1;
+    z-index: -2;
 }
 
 /* Text shadows for readability on dark mode overlay */
