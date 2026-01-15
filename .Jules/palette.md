@@ -9,3 +9,7 @@
 ## 2025-02-23 - Respecting Reduced Motion
 **Learning:** Personal sites often overuse scroll animations and floating elements ("blobs") which can cause vestibular issues. `scroll-behavior: smooth` is particularly jarring if not overridden.
 **Action:** Always include a `@media (prefers-reduced-motion: reduce)` block that resets `scroll-behavior` to `auto` and disables infinite animations.
+
+## 2025-02-23 - Mobile Zoom Accessibility
+**Learning:** The `maximum-scale=1.0, user-scalable=no` meta tag completely blocks users with low vision from zooming in, which is a critical WCAG violation.
+**Action:** Never restrict viewport scaling. Let users control their own zoom level.
