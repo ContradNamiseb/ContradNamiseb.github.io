@@ -215,4 +215,28 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         scrollSpyObserver.observe(section);
     });
+
+    // --- 8. Back to Top Button ---
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    if (backToTopBtn) {
+        // Toggle visibility
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        // Scroll to top
+        backToTopBtn.addEventListener('click', () => {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            window.scrollTo({
+                top: 0,
+                behavior: prefersReducedMotion ? 'auto' : 'smooth'
+            });
+        });
+    }
 });
