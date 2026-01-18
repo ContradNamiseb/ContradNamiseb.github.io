@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
     // Helper to update accessibility attributes
-    const updateThemeA11y = (isLight) => {
+    const updateTheme = (isLight) => {
         const label = isLight ? "Switch to Dark Mode" : "Switch to Light Mode";
         themeToggle.setAttribute('aria-label', label);
         themeToggle.setAttribute('title', label);
@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
         htmlElement.setAttribute('data-theme', 'light');
         if (icon) icon.style.transform = "rotate(180deg)";
-        updateThemeA11y(true);
+        updateTheme(true);
     } else {
-        updateThemeA11y(false);
+        updateTheme(false);
     }
 
     themeToggle.addEventListener('click', () => {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('LocalStorage access denied', e);
             }
             if (icon) icon.style.transform = "rotate(0deg)";
-            updateThemeA11y(false);
+            updateTheme(false);
         } else {
             // Switch to Light
             htmlElement.setAttribute('data-theme', 'light');
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('LocalStorage access denied', e);
             }
             if (icon) icon.style.transform = "rotate(180deg)";
-            updateThemeA11y(true);
+            updateTheme(true);
         }
     });
 
