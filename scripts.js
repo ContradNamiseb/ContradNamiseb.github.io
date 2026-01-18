@@ -14,10 +14,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const systemPrefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
+    // Helper to update accessibility attributes
+    const updateTheme = (isLight) => {
+        const label = isLight ? "Switch to Dark Mode" : "Switch to Light Mode";
+        themeToggle.setAttribute('aria-label', label);
+        themeToggle.setAttribute('title', label);
+    };
+
     // Apply light mode ONLY if specifically saved or system defaults to it
     if (savedTheme === 'light' || (!savedTheme && systemPrefersLight)) {
         htmlElement.setAttribute('data-theme', 'light');
         if (icon) icon.style.transform = "rotate(180deg)";
+        updateTheme(true);
+    } else {
+        updateTheme(false);
     }
 
     themeToggle.addEventListener('click', () => {
@@ -32,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('LocalStorage access denied', e);
             }
             if (icon) icon.style.transform = "rotate(0deg)";
+            updateTheme(false);
         } else {
             // Switch to Light
             htmlElement.setAttribute('data-theme', 'light');
@@ -41,6 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.warn('LocalStorage access denied', e);
             }
             if (icon) icon.style.transform = "rotate(180deg)";
+            updateTheme(true);
         }
     });
 
