@@ -17,3 +17,7 @@
 ## 2025-02-23 - Programmatic Scroll & Reduced Motion
 **Learning:** CSS `scroll-behavior: smooth` is ignored when using `window.scrollTo({ behavior: 'smooth' })` in JS, meaning users with reduced motion preferences are forced into animations.
 **Action:** Always check `window.matchMedia('(prefers-reduced-motion: reduce)')` in JS before applying programmatic smooth scrolling.
+
+## 2025-02-23 - Copy Action Feedback
+**Learning:** Clipboard operations are invisible. Users need immediate confirmation that the action succeeded, both visually (icon change) and programmatically (aria-label update).
+**Action:** Pair `navigator.clipboard.writeText` with a temporary state change (e.g., 'Copy' -> 'Checkmark') and update `aria-label` to "Copied!".
