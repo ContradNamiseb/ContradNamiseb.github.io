@@ -809,12 +809,46 @@ a.skill-card:hover {
     margin-bottom: 2rem;
 }
 
+.email-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
 .email-link {
     display: inline-block;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--accent-cyan);
-    margin-bottom: 0.5rem;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.copy-btn:hover {
+    color: var(--accent-primary);
+    background: var(--card-hover-bg);
+    transform: translateY(-2px);
+}
+
+.copy-btn:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 4px;
 }
 
 .phone-number {

@@ -248,4 +248,34 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- 9. Copy Email Functionality ---
+    const copyBtn = document.getElementById('copy-email-btn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            // Dynamically get email from the sibling link or fallback
+            const emailLink = copyBtn.parentElement.querySelector('.email-link');
+            const email = emailLink ? emailLink.textContent.trim() : "contradnamiseb@gmail.com";
+
+            navigator.clipboard.writeText(email).then(() => {
+                // Success feedback
+                const icon = copyBtn.querySelector('i');
+
+                // Change icon
+                icon.className = 'fa-solid fa-check';
+                copyBtn.setAttribute('aria-label', 'Email copied to clipboard');
+                copyBtn.style.color = 'var(--accent-primary)';
+
+                // Revert after 2 seconds
+                setTimeout(() => {
+                    icon.className = 'fa-solid fa-copy'; // Reset to copy icon
+                    copyBtn.setAttribute('aria-label', 'Copy email address');
+                    copyBtn.style.color = ''; // Reset color
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback for visual feedback even if clipboard fails (optional, but good for UX)
+            });
+        });
+    }
 });
