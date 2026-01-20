@@ -21,3 +21,7 @@
 ## 2025-02-23 - Copy Action Feedback
 **Learning:** Clipboard operations are invisible. Users need immediate confirmation that the action succeeded, both visually (icon change) and programmatically (aria-label update).
 **Action:** Pair `navigator.clipboard.writeText` with a temporary state change (e.g., 'Copy' -> 'Checkmark') and update `aria-label` to "Copied!".
+
+## 2025-02-23 - Accessible Off-Canvas Menus
+**Learning:** Off-screen mobile menus hidden only by position (e.g., `right: -100%`) remain in the tab order, causing keyboard users to focus on invisible elements.
+**Action:** Use `visibility: hidden` (with a transition delay) or `inert` on the closed container to remove it from the accessibility tree while preserving slide animations.
