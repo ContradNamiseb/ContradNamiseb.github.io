@@ -1007,12 +1007,15 @@ a.skill-card:hover {
         background: var(--mobile-nav-bg);
         flex-direction: column;
         justify-content: center;
-        transition: 0.3s ease;
+        transition: right 0.3s ease, visibility 0s linear 0.3s;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        visibility: hidden;
     }
 
     .nav-links.active {
         right: 0;
+        visibility: visible;
+        transition: right 0.3s ease, visibility 0s linear 0s;
     }
 
     .hamburger.active .bar:nth-child(1) {
