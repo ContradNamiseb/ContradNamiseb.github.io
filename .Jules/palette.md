@@ -29,3 +29,7 @@
 ## 2025-02-23 - Contextual Link Labels
 **Learning:** Repetitive link text like "View Demo" or "View Code" creates ambiguity for screen reader users, who often navigate by a list of links.
 **Action:** Always append the project or context name to the `aria-label` (e.g., "View Sky-Namibia Demo") to provide unique, descriptive labels for every interactive element.
+
+## 2025-02-24 - False Affordances in Mixed Grids
+**Learning:** In grids mixing links and static content (e.g., Skill Cards), applying universal hover effects creates false affordances, frustrating users who expect interactivity.
+**Action:** Strictly scope hover animations (transform/lift) to `a.card` or `button.card` selectors, ensuring static `div.card` elements remain visually grounded.
