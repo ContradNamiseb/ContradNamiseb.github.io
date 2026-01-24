@@ -637,7 +637,7 @@ a.skill-card:focus-visible {
     border-color: var(--accent-primary);
 }
 
-.skill-card:hover,
+a.skill-card:hover,
 a.skill-card:focus-visible {
     background: var(--card-hover-bg);
     transform: translateY(-5px);
@@ -650,7 +650,7 @@ a.skill-card:focus-visible {
     transition: var(--transition-fast);
 }
 
-.skill-card:hover i,
+a.skill-card:hover i,
 a.skill-card:focus-visible i {
     color: var(--accent-primary);
     transform: scale(1.1);

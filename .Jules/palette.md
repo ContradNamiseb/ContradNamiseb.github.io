@@ -29,3 +29,11 @@
 ## 2025-02-23 - Contextual Link Labels
 **Learning:** Repetitive link text like "View Demo" or "View Code" creates ambiguity for screen reader users, who often navigate by a list of links.
 **Action:** Always append the project or context name to the `aria-label` (e.g., "View Sky-Namibia Demo") to provide unique, descriptive labels for every interactive element.
+
+## 2026-01-24 - False Affordance on Static Cards
+**Learning:** Reusing the same card styling for both interactive (links) and static (divs) elements creates false affordances if hover effects are applied globally. Users expect elements that "lift" or change color to be clickable.
+**Action:** Restrict hover and focus effects strictly to interactive elements (e.g., `a.card:hover`) rather than the shared component class.
+
+## 2026-01-24 - Verification of Entry Animations
+**Learning:** When using Playwright to verify computed styles (like transforms), entry animations (like fade-ins) can pollute the test data if the element hasn't fully settled.
+**Action:** Always scroll the element into view and explicitly wait for the animation duration (or check for the "settled" state) before asserting computed styles.
