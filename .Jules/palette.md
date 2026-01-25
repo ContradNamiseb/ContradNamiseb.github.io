@@ -37,3 +37,7 @@
 ## 2026-01-24 - Verification of Entry Animations
 **Learning:** When using Playwright to verify computed styles (like transforms), entry animations (like fade-ins) can pollute the test data if the element hasn't fully settled.
 **Action:** Always scroll the element into view and explicitly wait for the animation duration (or check for the "settled" state) before asserting computed styles.
+
+## 2026-02-23 - Print Styles for Portfolios
+**Learning:** Portfolios are often printed by recruiters. Dark mode and animations ruin printouts, and interactive elements (navbars) clutter the page.
+**Action:** Always add `@media print` to reset to black/white, hide interactive elements, and simplify layout for a clean document look.
