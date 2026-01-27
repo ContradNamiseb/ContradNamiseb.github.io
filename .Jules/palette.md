@@ -41,3 +41,11 @@
 ## 2026-02-23 - Print Styles for Portfolios
 **Learning:** Portfolios are often printed by recruiters. Dark mode and animations ruin printouts, and interactive elements (navbars) clutter the page.
 **Action:** Always add `@media print` to reset to black/white, hide interactive elements, and simplify layout for a clean document look.
+
+## 2025-02-23 - External Link Indicators
+**Learning:** Text-only links in navbars (like "Resume") that open external PDFs are ambiguous. Users might expect an internal page transition.
+**Action:** Always append a visual indicator (like `fa-arrow-up-right-from-square`) to primary navigation items that leave the site context.
+
+## 2025-02-23 - Native Tooltips for Icon Buttons
+**Learning:** Icon-only buttons rely on ARIA for screen readers but often lack feedback for mouse users who hover to understand functionality.
+**Action:** Always pair `aria-label` with a matching `title` attribute for icon-only controls to support both assistive tech and mouse users.
