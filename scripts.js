@@ -264,12 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Change icon
                 icon.className = 'fa-solid fa-check';
                 copyBtn.setAttribute('aria-label', 'Email copied to clipboard');
+                copyBtn.setAttribute('title', 'Email copied to clipboard');
                 copyBtn.style.color = 'var(--accent-primary)';
 
                 // Revert after 2 seconds
                 setTimeout(() => {
                     icon.className = 'fa-solid fa-copy'; // Reset to copy icon
                     copyBtn.setAttribute('aria-label', 'Copy email address');
+                    copyBtn.setAttribute('title', 'Copy email address');
                     copyBtn.style.color = ''; // Reset color
                 }, 2000);
             }).catch(err => {
