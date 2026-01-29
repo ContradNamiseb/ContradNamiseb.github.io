@@ -41,3 +41,7 @@
 ## 2026-02-23 - Print Styles for Portfolios
 **Learning:** Portfolios are often printed by recruiters. Dark mode and animations ruin printouts, and interactive elements (navbars) clutter the page.
 **Action:** Always add `@media print` to reset to black/white, hide interactive elements, and simplify layout for a clean document look.
+
+## 2026-02-24 - Visual Affordance for External Links
+**Learning:** Text-only links in navigation bars (like "Resume") that open in new tabs (`target="_blank"`) lack necessary visual cues, relying solely on screen reader announcements.
+**Action:** Always append an external link icon (e.g., `fa-arrow-up-right-from-square`) and a tooltip to primary call-to-action buttons that navigate away from the site.

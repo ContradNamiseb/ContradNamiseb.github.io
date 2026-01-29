@@ -177,7 +177,9 @@ a.skill-card:focus-visible {
 }
 
 .btn-primary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
     padding: 0.8rem 1.8rem;
     background: var(--gradient-main);
     color: white;
