@@ -369,6 +369,11 @@ a.skill-card:focus-visible {
     color: var(--text-primary);
 }
 
+/* Pause blink animation when off-screen */
+.paused-cursor::after {
+    animation-play-state: paused;
+}
+
 @keyframes blink {
 
     0%,

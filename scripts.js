@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let charIndex = 0;
         let isDeleting = false;
         let timeoutId = null;
+        let isWriterVisible = false;
 
         // Check for reduced motion preference
         const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -148,17 +149,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 typewriterElement.textContent = phrases[0];
             } else {
-                // Reduced motion disabled: Start/Resume animation
-                if (!timeoutId) type();
+                // Reduced motion disabled: Start/Resume animation IF visible
+                if (isWriterVisible && !timeoutId) {
+                    type();
+                }
             }
         }
+
+        // Intersection Observer for pausing/resuming
+        const typeWriterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                isWriterVisible = entry.isIntersecting;
+
+                if (entry.isIntersecting) {
+                    // Resume if not reduced motion and not already running
+                    if (!mediaQuery.matches && !timeoutId) {
+                        type();
+                    }
+                    typewriterElement.classList.remove('paused-cursor');
+                } else {
+                    // Pause
+                    if (timeoutId) {
+                        clearTimeout(timeoutId);
+                        timeoutId = null;
+                    }
+                    typewriterElement.classList.add('paused-cursor');
+                }
+            });
+        }, {
+            threshold: 0
+        });
+
+        typeWriterObserver.observe(typewriterElement);
 
         // Initialize based on current preference
         if (mediaQuery.matches) {
             typewriterElement.textContent = phrases[0];
-        } else {
-            type();
         }
+        // If not reduced motion, the observer will trigger the initial type() call when visible.
 
         // Listen for preference changes
         mediaQuery.addEventListener('change', handleMotionChange);
