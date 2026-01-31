@@ -45,3 +45,7 @@
 ## 2026-02-24 - Visual Affordance for External Links
 **Learning:** Text-only links in navigation bars (like "Resume") that open in new tabs (`target="_blank"`) lack necessary visual cues, relying solely on screen reader announcements.
 **Action:** Always append an external link icon (e.g., `fa-arrow-up-right-from-square`) and a tooltip to primary call-to-action buttons that navigate away from the site.
+
+## 2026-02-25 - Micro-Copy Personalization
+**Learning:** Static greetings like "Hello" miss an opportunity to build emotional connection. Users react positively to interfaces that acknowledge their context (like time of day).
+**Action:** Implement simple time-based logic (Morning/Afternoon/Evening) for "Welcome" messages on personal portfolios and dashboards.

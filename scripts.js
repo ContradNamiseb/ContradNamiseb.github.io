@@ -1,5 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- 0. Dynamic Greeting ---
+    const greetingElement = document.getElementById('greeting');
+    if (greetingElement) {
+        const hour = new Date().getHours();
+        let greetingText = 'Hello';
+
+        if (hour >= 5 && hour < 12) {
+            greetingText = 'Good morning';
+        } else if (hour >= 12 && hour < 18) {
+            greetingText = 'Good afternoon';
+        } else {
+            greetingText = 'Good evening';
+        }
+
+        greetingElement.textContent = `${greetingText}, I'm`;
+    }
+
     // --- 1. Modern Theme Toggle Logic (Dark First) ---
     const themeToggle = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
