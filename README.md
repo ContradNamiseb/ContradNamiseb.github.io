@@ -2,17 +2,17 @@
 
 A modern, responsive portfolio website showcasing my skills, projects, and professional background.
 
-## 🌐 Live Site
+## Live Site
 
 Visit: [https://contradnamiseb.github.io](https://contradnamiseb.github.io)
 
-## ✨ Features
+## Features
 
 - **Dynamic Typewriter** - Animated text showcasing skills
 - **Project Showcase** - Featured projects with links to GitHub repos
 - **Contact Section** - Easy access to email and social profiles
 
-## 🛠️ Built With
+## Built With
 
 - HTML5
 - CSS3 (Custom Properties, Flexbox, Grid)
@@ -20,7 +20,7 @@ Visit: [https://contradnamiseb.github.io](https://contradnamiseb.github.io)
 - Font Awesome Icons
 - Google Fonts (Inter, Outfit)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 portfolio/
@@ -29,7 +29,7 @@ portfolio/
 ├── scripts.js          # Interactive functionality
 └── images/             # Profile and project images
 ```
-## 📬 Contact
+## Contact
 
 - **Email**: contradnamiseb@gmail.com
 - **LinkedIn**: [Contrad Namiseb](https://www.linkedin.com/in/contrad-namiseb-093686210/)
