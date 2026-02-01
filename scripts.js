@@ -261,8 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Remove active from all
                 navItems.forEach(link => {
                     link.classList.remove('active');
+                    link.removeAttribute('aria-current');
                     if (link.getAttribute('href') === `#${id}`) {
                         link.classList.add('active');
+                        link.setAttribute('aria-current', 'true');
                     }
                 });
             }

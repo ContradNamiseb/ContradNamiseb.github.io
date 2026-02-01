@@ -49,3 +49,7 @@
 ## 2026-02-25 - Micro-Copy Personalization
 **Learning:** Static greetings like "Hello" miss an opportunity to build emotional connection. Users react positively to interfaces that acknowledge their context (like time of day).
 **Action:** Implement simple time-based logic (Morning/Afternoon/Evening) for "Welcome" messages on personal portfolios and dashboards.
+
+## 2025-02-28 - Semantic State for Scroll Spies
+**Learning:** Visually active navigation links (via `.active` class) are invisible to screen readers, leaving them guessing which section they are viewing.
+**Action:** Always sync `.active` classes with `aria-current="true"` (or `aria-current="step"`) in scroll spy logic.
