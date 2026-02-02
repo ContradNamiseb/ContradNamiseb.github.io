@@ -104,6 +104,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 hamburger.setAttribute('aria-expanded', 'false');
             });
         });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.focus(); // Restore focus to the toggle button
+            }
+        });
     }
 
     // --- 4. Typewriter Effect ---

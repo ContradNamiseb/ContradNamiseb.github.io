@@ -53,3 +53,7 @@
 ## 2025-02-28 - Semantic State for Scroll Spies
 **Learning:** Visually active navigation links (via `.active` class) are invisible to screen readers, leaving them guessing which section they are viewing.
 **Action:** Always sync `.active` classes with `aria-current="true"` (or `aria-current="step"`) in scroll spy logic.
+
+## 2025-02-28 - Keyboard Control for Overlays
+**Learning:** Keyboard users expect the 'Escape' key to close any full-screen overlay or modal, but this is rarely implemented by default in custom menus.
+**Action:** Always attach a `keydown` listener for `Escape` whenever opening a custom overlay, and restore focus to the trigger element on close.
