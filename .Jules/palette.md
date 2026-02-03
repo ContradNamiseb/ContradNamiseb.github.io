@@ -57,3 +57,6 @@
 ## 2026-03-01 - Focus Timing on Revealed Elements
 **Learning:** Focusing an element immediately after removing `visibility: hidden` (via class change) often fails because the browser hasn't processed the visibility change yet.
 **Action:** Wrap the `.focus()` call in a small `setTimeout` (e.g., 100ms) when focusing elements that were just revealed.
+## 2025-02-28 - Keyboard Control for Overlays
+**Learning:** Keyboard users expect the 'Escape' key to close any full-screen overlay or modal, but this is rarely implemented by default in custom menus.
+**Action:** Always attach a `keydown` listener for `Escape` whenever opening a custom overlay, and restore focus to the trigger element on close.
