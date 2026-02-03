@@ -94,6 +94,24 @@ document.addEventListener('DOMContentLoaded', () => {
             // Update accessibility attribute
             const isExpanded = hamburger.classList.contains('active');
             hamburger.setAttribute('aria-expanded', isExpanded);
+
+            if (isExpanded) {
+                // Focus first link for accessibility
+                const firstLink = navLinks.querySelector('a');
+                if (firstLink) {
+                    setTimeout(() => firstLink.focus(), 100);
+                }
+            }
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.focus();
+            }
         });
 
         // Close menu when a link is clicked

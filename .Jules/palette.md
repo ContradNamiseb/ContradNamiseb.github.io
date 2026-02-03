@@ -53,3 +53,7 @@
 ## 2025-02-28 - Semantic State for Scroll Spies
 **Learning:** Visually active navigation links (via `.active` class) are invisible to screen readers, leaving them guessing which section they are viewing.
 **Action:** Always sync `.active` classes with `aria-current="true"` (or `aria-current="step"`) in scroll spy logic.
+
+## 2026-03-01 - Focus Timing on Revealed Elements
+**Learning:** Focusing an element immediately after removing `visibility: hidden` (via class change) often fails because the browser hasn't processed the visibility change yet.
+**Action:** Wrap the `.focus()` call in a small `setTimeout` (e.g., 100ms) when focusing elements that were just revealed.
