@@ -104,13 +104,15 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Close menu on Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navLinks.classList.contains('active') &&
+                !hamburger.contains(e.target) &&
+                !navLinks.contains(e.target)) {
+
                 hamburger.classList.remove('active');
                 navLinks.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
-                hamburger.focus();
             }
         });
 
