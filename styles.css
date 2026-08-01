@@ -4,24 +4,24 @@
 */
 :root {
     /* Colors */
-    --bg-dark: #030712;
-    --bg-surface: #111827;
+    --bg-dark: #050816;
+    --bg-surface: #0c1224;
     --text-primary: #f9fafb;
     --text-secondary: #9ca3af;
-    --accent-primary: #0ea5e9;
-    --accent-secondary: #3b82f6;
-    --accent-cyan: #7dd3fc;
+    --accent-primary: #38bdf8;
+    --accent-secondary: #6366f1;
+    --accent-cyan: #a5f3fc;
 
     /* Backgrounds & Borders (Dark Mode Default) */
     --nav-bg: rgba(3, 7, 18, 0.85);
     --nav-border: rgba(255, 255, 255, 0.05);
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.1);
-    --card-bg: rgba(255, 255, 255, 0.03);
-    --card-border: rgba(255, 255, 255, 0.05);
+    --card-bg: rgba(15, 23, 42, 0.58);
+    --card-border: rgba(148, 163, 184, 0.12);
     --card-hover-bg: rgba(255, 255, 255, 0.08);
-    --project-card-bg: rgba(17, 24, 39, 0.6);
-    --project-card-border: rgba(255, 255, 255, 0.05);
+    --project-card-bg: rgba(12, 18, 36, 0.78);
+    --project-card-border: rgba(148, 163, 184, 0.14);
     --btn-secondary-border: rgba(255, 255, 255, 0.1);
     --tag-bg: rgba(255, 255, 255, 0.05);
     --footer-border: rgba(255, 255, 255, 0.05);
@@ -36,7 +36,8 @@
 
     /* Gradients */
     --gradient-main: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-    --gradient-text: linear-gradient(to right, #7dd3fc, #0ea5e9, #2563eb);
+    --gradient-text: linear-gradient(110deg, #a5f3fc, #38bdf8 45%, #818cf8);
+    --shadow-card: 0 24px 70px rgba(0, 0, 0, 0.22);
 
     /* Fonts & Transitions */
     --font-heading: 'Outfit', sans-serif;
@@ -69,6 +70,7 @@
     --tag-bg: rgba(0, 0, 0, 0.05);
     --footer-border: rgba(0, 0, 0, 0.05);
     --mobile-nav-bg: rgba(255, 255, 255, 0.98);
+    --shadow-card: 0 24px 70px rgba(15, 23, 42, 0.1);
 
     /* Project Overlays (Light Mode) */
     --project-overlay-start: rgba(255, 255, 255, 0.85);
@@ -97,9 +99,13 @@ html {
 
 body {
     background-color: var(--bg-dark);
+    background-image:
+        radial-gradient(circle at 12% 12%, rgba(56, 189, 248, 0.12), transparent 30rem),
+        radial-gradient(circle at 88% 38%, rgba(99, 102, 241, 0.1), transparent 34rem);
+    background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
-    line-height: 1.6;
+    line-height: 1.8;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -220,7 +226,17 @@ a.skill-card:focus-visible {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 5%;
+    width: calc(100% - 3rem);
+    max-width: 1320px;
+    margin: 1rem auto 0;
+    padding: 0.8rem 1.25rem;
+    right: 0;
+    background: var(--nav-bg);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid var(--nav-border);
+    border-radius: 18px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -229,10 +245,11 @@ a.skill-card:focus-visible {
 }
 
 .navbar.scrolled {
-    padding: 1rem 5%;
+    margin-top: 0.5rem;
+    padding: 0.65rem 1.25rem;
     background: var(--nav-bg);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--nav-border);
+    border: 1px solid var(--nav-border);
 }
 
 .logo a {
@@ -275,14 +292,14 @@ a.skill-card:focus-visible {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-links a:not(.btn-primary) {
     font-weight: 500;
     color: var(--text-secondary);
     display: inline-block;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem 0.75rem;
     border: 1px solid transparent;
     border-radius: 100px;
     transition: var(--transition-medium);
@@ -291,10 +308,10 @@ a.skill-card:focus-visible {
 .nav-links a:not(.btn-primary):hover,
 .nav-links a:not(.btn-primary):focus-visible,
 .nav-links a:not(.btn-primary).active {
-    color: var(--text-primary);
-    background: var(--gradient-main);
-    border-color: var(--accent-primary);
-    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.5);
+    color: var(--accent-cyan);
+    background: rgba(56, 189, 248, 0.09);
+    border-color: rgba(56, 189, 248, 0.18);
+    box-shadow: none;
     outline: none;
 }
 
@@ -325,29 +342,41 @@ a.skill-card:focus-visible {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 100px 10% 0;
+    padding: 120px max(7%, calc((100vw - 1200px) / 2)) 2rem;
     position: relative;
     overflow: hidden;
 }
 
 .hero-content {
-    max-width: 600px;
+    max-width: 760px;
+    padding: 4rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 28px;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(16px);
     z-index: 2;
 }
 
 .greeting {
     color: var(--accent-cyan);
     font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 0.8rem;
+    border: 1px solid rgba(56, 189, 248, 0.18);
+    border-radius: 999px;
+    background: rgba(56, 189, 248, 0.08);
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
 }
 
 .name {
     font-family: var(--font-heading);
-    font-size: 4rem;
+    font-size: clamp(3.5rem, 6vw, 5.75rem);
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     background: linear-gradient(to right, var(--text-primary), #94a3b8);
     -webkit-background-clip: text;
     background-clip: text;
@@ -355,7 +384,7 @@ a.skill-card:focus-visible {
 }
 
 .title {
-    font-size: 2rem;
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
 }
@@ -389,7 +418,12 @@ a.skill-card:focus-visible {
 }
 
 .bio {
-    font-size: 1.1rem;
+    font-size: 1.12rem;
+    line-height: 1.9;
+}
+
+.about-text p + p {
+    margin-top: 1.25rem;
     color: var(--text-secondary);
     margin-bottom: 2.5rem;
     max-width: 500px;
@@ -408,8 +442,8 @@ a.skill-card:focus-visible {
 /* Visuals */
 .hero-visual {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: min(38vw, 460px);
+    height: min(38vw, 460px);
     z-index: 1;
 }
 
@@ -473,8 +507,8 @@ a.skill-card:focus-visible {
 
 /* Profile Card */
 .glass-card.profile-card {
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    height: 100%;
     padding: 0;
     /* Changed overflow to visible so the hover shadow isn't cut off */
     overflow: visible;
@@ -493,7 +527,8 @@ a.skill-card:focus-visible {
     border-radius: 50%;
     transition: var(--transition-medium);
     /* Optional: ensures no image corners peek out */
-    border: 2px solid transparent;
+    border: 8px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 30px 80px rgba(2, 6, 23, 0.4), 0 0 0 1px rgba(56, 189, 248, 0.25);
 }
 
 .profile-image:hover {
@@ -549,7 +584,7 @@ a.skill-card:focus-visible {
    ----------------------------------------
 */
 .section {
-    padding: 100px 0;
+    padding: 120px 0;
     position: relative;
 }
 
@@ -559,7 +594,7 @@ a.skill-card:focus-visible {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
     font-family: var(--font-heading);
     font-weight: 700;
     color: var(--text-primary);
@@ -567,8 +602,8 @@ a.skill-card:focus-visible {
 
 .line {
     display: block;
-    width: 60px;
-    height: 4px;
+    width: 72px;
+    height: 3px;
     background: var(--gradient-main);
     margin: 10px auto 0;
     border-radius: 2px;
@@ -591,12 +626,18 @@ a.skill-card:focus-visible {
 .stats {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 1rem;
     margin-top: 3rem;
 }
 
 .stat-item {
     text-align: center;
+    min-width: 150px;
+    padding: 1.25rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--shadow-card);
 }
 
 .stat-number {
@@ -625,7 +666,9 @@ a.skill-card:focus-visible {
     background: var(--card-bg);
     border: 1px solid var(--card-border);
     padding: 2rem 1rem;
-    border-radius: 12px;
+    border-radius: 18px;
+    box-shadow: 0 16px 45px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(12px);
     text-align: center;
     transition: var(--transition-medium);
     display: block;
@@ -642,6 +685,7 @@ a.skill-card {
 a.skill-card:hover,
 a.skill-card:focus-visible {
     border-color: var(--accent-primary);
+    box-shadow: 0 22px 50px rgba(56, 189, 248, 0.13);
 }
 
 a.skill-card:hover,
@@ -672,11 +716,12 @@ a.skill-card:focus-visible i {
 
 .project-card {
     background: var(--project-card-bg);
-    border-radius: 16px;
+    border-radius: 22px;
     overflow: hidden;
     border: 1px solid var(--project-card-border);
     transition: var(--transition-medium);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(16px);
+    box-shadow: var(--shadow-card);
 }
 
 @media (hover: hover) {
@@ -702,14 +747,17 @@ a.skill-card:focus-visible i {
 }
 
 .project-content {
-    padding: 2rem;
+    padding: 2.25rem;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-icon {
-    width: 50px;
-    height: 50px;
+    width: 54px;
+    height: 54px;
     background: rgba(14, 165, 233, 0.1);
-    border-radius: 10px;
+    border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -729,13 +777,14 @@ a.skill-card:focus-visible i {
     color: var(--text-secondary);
     margin-bottom: 1.5rem;
     font-size: 0.95rem;
+    line-height: 1.75;
 }
 
 .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .project-tags span {
@@ -749,7 +798,7 @@ a.skill-card:focus-visible i {
 .project-links {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: auto;
     flex-wrap: wrap;
 }
 
@@ -910,7 +959,7 @@ a.skill-card:focus-visible i {
 }
 
 .footer {
-    padding: 2rem;
+    padding: 2.5rem;
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.9rem;
@@ -973,12 +1022,33 @@ a.skill-card:focus-visible i {
     outline-offset: 4px;
 }
 
+@media (max-width: 1100px) {
+    .logo a {
+        font-size: 1.4rem;
+    }
+
+    .nav-links {
+        gap: 0.75rem;
+    }
+
+    .hero {
+        gap: 3rem;
+    }
+}
+
 /* Mobile */
 @media (max-width: 768px) {
+    .navbar,
+    .navbar.scrolled {
+        width: calc(100% - 1.5rem);
+        margin-top: 0.75rem;
+        padding: 0.7rem 1rem;
+    }
+
     .hero {
         flex-direction: column;
         text-align: center;
-        padding-top: 120px;
+        padding: 130px 1.5rem 4rem;
     }
 
     .hero-content {
@@ -1025,6 +1095,8 @@ a.skill-card:focus-visible i {
         transition: right 0.3s ease, visibility 0s linear 0.3s;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
         visibility: hidden;
+        border-left: 1px solid var(--nav-border);
+        backdrop-filter: blur(18px);
     }
 
     .nav-links.active {
@@ -1043,6 +1115,41 @@ a.skill-card:focus-visible i {
 
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+    }
+
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+
+    .stats {
+        flex-wrap: wrap;
+    }
+
+    .stat-item {
+        flex: 1 1 120px;
+        min-width: 120px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        width: calc(100% - 2rem);
+        padding: 3rem 1.25rem;
+    }
+
+    .email-link {
+        font-size: clamp(1rem, 5vw, 1.5rem);
+        overflow-wrap: anywhere;
     }
 }
 /* ----------------------------------------
