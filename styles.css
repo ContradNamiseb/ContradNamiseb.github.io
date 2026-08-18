@@ -406,12 +406,15 @@ a.skill-card:focus-visible {
 
 .about-text p {
     color: var(--text-secondary);
-    margin-bottom: 2.5rem;
     max-width: 500px;
 }
 
 .about-text p + p {
     margin-top: 1.25rem;
+}
+
+.about-text p:last-of-type {
+    margin-bottom: 2.5rem;
 }
 
 .hero-btns {
