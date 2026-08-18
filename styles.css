@@ -1197,7 +1197,7 @@ a.skill-card:focus-visible i {
     height: 150px;
     background-size: cover;
     background-position: top center;
-    z-index: -1;
+    z-index: -2;
     transition: filter 0.3s ease;
     border-radius: 16px;
 }
@@ -1222,7 +1222,7 @@ a.skill-card:focus-visible i {
     background: linear-gradient(var(--project-overlay-start), var(--project-overlay-end));
     backdrop-filter: blur(var(--project-overlay-blur));
     -webkit-backdrop-filter: blur(var(--project-overlay-blur));
-    z-index: -2;
+    z-index: -1;
 }
 
 /* Text shadows for readability on dark mode overlay */
