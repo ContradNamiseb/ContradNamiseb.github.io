@@ -207,7 +207,6 @@ a.skill-card:focus-visible {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
     width: calc(100% - 3rem);
     max-width: 1320px;
     margin: 1rem auto 0;
@@ -231,6 +230,7 @@ a.skill-card:focus-visible {
     padding: 0.65rem 1.25rem;
     background: var(--nav-bg);
     backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--nav-border);
 }
 
