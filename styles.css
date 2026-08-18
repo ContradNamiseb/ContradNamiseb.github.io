@@ -404,11 +404,14 @@ a.skill-card:focus-visible {
     line-height: 1.9;
 }
 
-.about-text p + p {
-    margin-top: 1.25rem;
+.about-text p {
     color: var(--text-secondary);
     margin-bottom: 2.5rem;
     max-width: 500px;
+}
+
+.about-text p + p {
+    margin-top: 1.25rem;
 }
 
 .hero-btns {
